@@ -54,7 +54,7 @@ const Login = () => {
                 />
                 <span className="labelborder"></span>
               </div>
-              <Link href="/" className="text-xs absolute -bottom-5 right-0">
+              <Link href="#" className="text-xs absolute -bottom-5 right-0">
                 Forgot Password
               </Link>
             </div>
