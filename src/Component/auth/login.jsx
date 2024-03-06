@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   FaRegUser,
@@ -6,9 +7,12 @@ import {
   FaFacebookF,
   FaTwitter,
   FaGoogle,
+  FaLockOpen,
 } from "react-icons/fa";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <>
       <div className="relative flex justify-center items-center h-[100vh] w-screen">
@@ -32,9 +36,19 @@ const Login = () => {
                 <label htmlFor="" className="absolute -top-4 left-0 text-sm">
                   Password
                 </label>
-                <FaLock className="text-gray-500" />
+                {showPassword ? (
+                  <FaLockOpen
+                    className="text-gray-500"
+                    onClick={() => setShowPassword(!showPassword)}
+                  />
+                ) : (
+                  <FaLock
+                    className="text-gray-500"
+                    onClick={() => setShowPassword(!showPassword)}
+                  />
+                )}
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Type your password"
                   className="h-full w-full outline-none bg-transparent"
                 />
